@@ -1,4 +1,5 @@
 import express from "express";
+import { errorHandler } from "./errors";
 import { routes } from "./routes/routes";
 
 const application = async () => {
@@ -6,6 +7,7 @@ const application = async () => {
   app.use(express.json());
 
   routes(app);
+  app.use(errorHandler);
 
   return app;
 };
